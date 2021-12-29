@@ -1,0 +1,4 @@
+- branched from 1.2.0 tag 
+- added this file
+- changed the go.mod apache to nuvolaris (to build from the branch)
+- generated and stored in repo the wski18n/i18n_resources.go for easy build

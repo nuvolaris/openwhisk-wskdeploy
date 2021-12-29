@@ -1,4 +1,4 @@
-module github.com/apache/openwhisk-cli
+module github.com/nuvolaris/openwhisk-cli
 
 go 1.15
 
