@@ -300,7 +300,8 @@ var actionGetCmd = &cobra.Command{
 				werr := whisk.MakeWskError(errors.New(errStr), whisk.EXIT_CODE_ERR_GENERAL, whisk.DISPLAY_MSG, whisk.NO_DISPLAY_USAGE)
 				return werr
 			}
-			printActionGetWithURL(qualifiedName.GetEntity(), actionURL)
+			//printActionGetWithURL(qualifiedName.GetEntity(), actionURL)
+			fmt.Println(actionURL)
 		} else if Flags.common.summary {
 			printSummary(action)
 		} else if cmd.LocalFlags().Changed(SAVE_AS_FLAG) || cmd.LocalFlags().Changed(SAVE_FLAG) {
