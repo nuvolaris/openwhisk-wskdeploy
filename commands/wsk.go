@@ -24,7 +24,7 @@ import (
 
 // WskCmd defines the entry point for the cli.
 var WskCmd = &cobra.Command{
-	Use:               "wsk",
+	Use:               "nuv", //"wsk",
 	Short:             wski18n.T("OpenWhisk cloud computing command line interface."),
 	Long:              logoText(),
 	SilenceUsage:      true,
