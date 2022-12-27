@@ -27,7 +27,7 @@ import (
 	homedir "github.com/mitchellh/go-homedir"
 	"github.com/spf13/cobra"
 
-	"github.com/apache/openwhisk-cli/wski18n"
+	"github.com/nuvolaris/openwhisk-cli/wski18n"
 	"github.com/apache/openwhisk-client-go/whisk"
 )
 

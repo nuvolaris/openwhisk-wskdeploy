@@ -18,7 +18,7 @@
 package commands
 
 import (
-	"github.com/apache/openwhisk-cli/wski18n"
+	"github.com/nuvolaris/openwhisk-cli/wski18n"
 	"github.com/spf13/cobra"
 )
 
