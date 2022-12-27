@@ -30,8 +30,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/nuvolaris/openwhisk-cli/wski18n"
 	"github.com/apache/openwhisk-client-go/whisk"
+	"github.com/nuvolaris/openwhisk-cli/wski18n"
 
 	"github.com/fatih/color"
 	"github.com/mattn/go-colorable"
@@ -207,7 +207,7 @@ func invokeAction(
 		parameters,
 		blocking,
 		result)
-	return res, err
+	return res.(map[string]interface{}), err
 }
 
 func printInvocationResponse(
@@ -896,11 +896,11 @@ func updateWebSecureAnnotation(websecure string, annotations whisk.KeyValueArr) 
 	return annotations
 }
 
-//
 // Generate a secret according to the --web-secure setting
-//  true:   return a random int64
-//  false:  return false, meaning no secret was returned
-//  string: return the same string
+//
+//	true:   return a random int64
+//	false:  return false, meaning no secret was returned
+//	string: return the same string
 func webSecureSecret(webSecureMode string) interface{} {
 	switch strings.ToLower(webSecureMode) {
 	case "true":
