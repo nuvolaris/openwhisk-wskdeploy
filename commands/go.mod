@@ -1,6 +1,6 @@
 module github.com/nuvolaris/openwhisk-cli/commands
 
-go 1.17
+go 1.15
 
 replace github.com/apache/openwhisk-cli/wski18n => ../wski18n
 
@@ -16,26 +16,4 @@ require (
 	github.com/onsi/gomega v1.24.2
 	github.com/spf13/cobra v1.6.1
 	github.com/stretchr/testify v1.8.1
-)
-
-require (
-	github.com/cloudfoundry/jibber_jabber v0.0.0-20151120183258-bcc4c8345a21 // indirect
-	github.com/davecgh/go-spew v1.1.2-0.20180830191138-d8f796af33cc // indirect
-	github.com/fsnotify/fsnotify v1.4.9 // indirect
-	github.com/google/go-cmp v0.5.9 // indirect
-	github.com/google/go-querystring v1.0.0 // indirect
-	github.com/hokaccha/go-prettyjson v0.0.0-20210113012101-fb4e108d2519 // indirect
-	github.com/inconshreveable/mousetrap v1.0.1 // indirect
-	github.com/mattn/go-isatty v0.0.16 // indirect
-	github.com/nicksnyder/go-i18n v1.10.1 // indirect
-	github.com/nxadm/tail v1.4.8 // indirect
-	github.com/pelletier/go-toml v1.8.1 // indirect
-	github.com/pmezard/go-difflib v1.0.1-0.20181226105442-5d4384ee4fb2 // indirect
-	github.com/spf13/pflag v1.0.5 // indirect
-	golang.org/x/net v0.4.0 // indirect
-	golang.org/x/sys v0.3.0 // indirect
-	golang.org/x/text v0.5.0 // indirect
-	gopkg.in/tomb.v1 v1.0.0-20141024135613-dd632973f1e7 // indirect
-	gopkg.in/yaml.v2 v2.4.0 // indirect
-	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
