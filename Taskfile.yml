@@ -9,4 +9,4 @@ tasks:
   build: go build -ldflags "-X main.CLI_VERSION={{.TAG}}" -o wsk
   tag:
     - git tag -d $(git tag)  
-    - git tag -f {{.BASETAG}}.$(date +%y%m%d%H)
+    - git tag -f v{{.BASETAG}}.$(date +%y%m%d%H)

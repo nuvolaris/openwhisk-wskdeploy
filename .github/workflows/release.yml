@@ -34,4 +34,3 @@ jobs:
         overwrite: "true"
         compress_assets: "OFF"
         asset_name: wsk-${{github.ref_name}}-${{ matrix.goos }}-${{ matrix.goarch }}
-        release_tag: ${{github.ref_name}}
