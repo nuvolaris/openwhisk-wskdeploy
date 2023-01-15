@@ -1,11 +1,8 @@
 name: Release
 
 on:
-  push:
-    tags:
-    - '*'
-    branches-ignore:
-    - '*'
+  release:
+    types: [created]
 
 jobs:
   releases-matrix:
@@ -34,4 +31,4 @@ jobs:
         overwrite: "true"
         compress_assets: "OFF"
         asset_name: wsk-${{github.ref_name}}-${{ matrix.goos }}-${{ matrix.goarch }}
-        release_name: "${{github.ref_name}}"
+ 
