@@ -27,8 +27,8 @@ import (
 	homedir "github.com/mitchellh/go-homedir"
 	"github.com/spf13/cobra"
 
-	"github.com/nuvolaris/openwhisk-cli/wski18n"
 	"github.com/apache/openwhisk-client-go/whisk"
+	"github.com/nuvolaris/openwhisk-cli/wski18n"
 )
 
 var Properties struct {
@@ -71,9 +71,7 @@ var propertyCmd = &cobra.Command{
 	Short: wski18n.T("work with whisk properties"),
 }
 
-//
 // Set one or more openwhisk property values
-//
 var propertySetCmd = &cobra.Command{
 	Use:           "set",
 	Short:         wski18n.T("set property"),

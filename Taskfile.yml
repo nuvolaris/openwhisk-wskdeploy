@@ -1,3 +1,12 @@
 version: '3'
+vars:
+  BASETAG: 0.3.0-morpheus
+  TAG: 
+    sh: git tag
+ 
 tasks:
   setup: {"silent":true} 
+  build: go build -ldflags "-X main.CLI_VERSION={{.TAG}}" -o wsk
+  tag:
+    - git tag -d $(git tag)  
+    - git tag -f {{.BASETAG}}.$(date +%y%m%d%H)

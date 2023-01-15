@@ -22,15 +22,15 @@ import (
 	goi18n "github.com/nicksnyder/go-i18n/i18n"
 	"os"
 
-	"github.com/apache/openwhisk-cli/commands"
-	"github.com/apache/openwhisk-cli/wski18n"
+	"github.com/nuvolaris/openwhisk-cli/commands"
+	"github.com/nuvolaris/openwhisk-cli/wski18n"
 	"github.com/apache/openwhisk-client-go/whisk"
 )
 
-// CLI_BUILD_TIME holds the time of the CLI build.  During gradle builds,
+// CLI_VERSION is the cli version
 // this value will be overwritten via the command:
-//     go build -ldflags "-X main.CLI_BUILD_TIME=nnnnn"   // nnnnn is the new timestamp
-var CLI_BUILD_TIME string = "not set"
+//     go build -ldflags "-X main.CLI_VERSION=nnnnn"   // nnnnn is the new timestamp
+var CLI_VERSION string = "not set"
 
 var cliDebug = os.Getenv("WSK_CLI_DEBUG") // Useful for tracing init() code
 
@@ -44,7 +44,7 @@ func init() {
 	T = wski18n.T
 
 	// Rest of CLI uses the Properties struct, so set the build time there
-	commands.Properties.CLIVersion = CLI_BUILD_TIME
+	commands.Properties.CLIVersion = CLI_VERSION
 }
 
 func main() {
