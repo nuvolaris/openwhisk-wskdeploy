@@ -1,0 +1,11 @@
+version: '3'
+vars:
+  BASETAG: 0.0.0
+  TAG: 
+    sh: git tag
+ 
+tasks:
+  setup: {"silent":true} 
+  tag:
+    - git tag -d $(git tag)  
+    - git tag -f v{{.BASETAG}}.$(date +%y%m%d%H%M)
