@@ -19,9 +19,9 @@ package commands
 
 import (
 	"github.com/nuvolaris/openwhisk-cli/wski18n"
-	"github.com/apache/openwhisk-wskdeploy/cmd"
-	"github.com/apache/openwhisk-wskdeploy/utils"
-	wskdeploy_wski18n "github.com/apache/openwhisk-wskdeploy/wski18n"
+	"github.com/nuvolaris/openwhisk-wskdeploy/cmd"
+	"github.com/nuvolaris/openwhisk-wskdeploy/utils"
+	wskdeploy_wski18n "github.com/nuvolaris/openwhisk-wskdeploy/wski18n"
 	"github.com/spf13/cobra"
 )
 
