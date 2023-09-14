@@ -3,8 +3,6 @@ module github.com/nuvolaris/openwhisk-cli
 go 1.19
 
 require (
-	github.com/apache/openwhisk-cli v0.0.0-20230216141022-b1ca4bccc2c2
-	github.com/apache/openwhisk-client-go v0.0.0-20221221220036-71124f15c938
 	github.com/nicksnyder/go-i18n v1.10.1
 	github.com/nuvolaris/openwhisk-cli/commands v0.0.0-20230115092405-cabe86261082
 	github.com/nuvolaris/openwhisk-cli/wski18n v0.0.0-20230115092405-cabe86261082
