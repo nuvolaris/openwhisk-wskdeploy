@@ -97,13 +97,15 @@ var FileRuntimeExtensionsMap map[string]string
 // `curl -k https://openwhisk.ng.bluemix.net`
 // hard coding it here in case of network unavailable or failure.
 func ParseOpenWhisk(apiHost string) (op OpenWhiskInfo, err error) {
-	opURL := apiHost + "/api/runtimes/"
+	opURL := apiHost
 	_, err = url.ParseRequestURI(opURL)
 	if err != nil {
 		opURL = HTTPS + opURL
 	}
-	req, _ := http.NewRequest("GET", opURL, nil)
+	req, _ := http.NewRequest("GET", opURL+"/api/runtimes/", nil)
+	req1, _ := http.NewRequest("GET", opURL, nil)
 	req.Header.Set(HTTP_CONTENT_TYPE_KEY, HTTP_CONTENT_TYPE_VALUE)
+	req1.Header.Set(HTTP_CONTENT_TYPE_KEY, HTTP_CONTENT_TYPE_VALUE)
 	tlsConfig := &tls.Config{
 		InsecureSkipVerify: true,
 	}
@@ -117,7 +119,12 @@ func ParseOpenWhisk(apiHost string) (op OpenWhiskInfo, err error) {
 		Transport: netTransport,
 	}
 
+	whisk.Debug(whisk.DbgInfo, "trying "+req.URL.String())
 	res, err := netClient.Do(req)
+	if err != nil {
+		whisk.Debug(whisk.DbgInfo, "trying "+req1.URL.String())
+		res, err = netClient.Do(req1)
+	}
 	if err != nil {
 		// TODO() create an error
 		errString := wski18n.T(wski18n.ID_ERR_RUNTIMES_GET_X_err_X,
@@ -139,7 +146,9 @@ func ParseOpenWhisk(apiHost string) (op OpenWhiskInfo, err error) {
 	if err != nil || !strings.Contains(HTTP_CONTENT_TYPE_VALUE, res.Header.Get(HTTP_CONTENT_TYPE_KEY)) {
 		stdout := wski18n.T(wski18n.ID_MSG_UNMARSHAL_LOCAL)
 		wskprint.PrintOpenWhiskVerbose(utils.Flags.Verbose, stdout)
-		err = json.Unmarshal(RUNTIME_DETAILS, &op)
+		runtimes := os.Getenv("RUNTIMES_JSON")
+		whisk.Debug(whisk.DbgInfo, runtimes)
+		err = json.Unmarshal([]byte(runtimes), &op)
 		if err != nil {
 			errMessage := wski18n.T(wski18n.ID_ERR_RUNTIME_PARSER_ERROR,
 				map[string]interface{}{wski18n.KEY_ERR: err.Error()})
@@ -284,5 +293,3 @@ func ListOfSupportedRuntimes(runtimes map[string][]string) (rt []string) {
 	}
 	return
 }
-
-var RUNTIME_DETAILS = []byte(os.Getenv("RUNTIMES_JSON"))
