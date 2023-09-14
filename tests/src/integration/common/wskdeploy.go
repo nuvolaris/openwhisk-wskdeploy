@@ -29,11 +29,11 @@ import (
 	"time"
 
 	"github.com/apache/openwhisk-client-go/whisk"
-	"github.com/apache/openwhisk-wskdeploy/dependencies"
-	"github.com/apache/openwhisk-wskdeploy/deployers"
-	"github.com/apache/openwhisk-wskdeploy/runtimes"
-	"github.com/apache/openwhisk-wskdeploy/utils"
-	"github.com/apache/openwhisk-wskdeploy/wskderrors"
+	"github.com/nuvolaris/openwhisk-wskdeploy/dependencies"
+	"github.com/nuvolaris/openwhisk-wskdeploy/deployers"
+	"github.com/nuvolaris/openwhisk-wskdeploy/runtimes"
+	"github.com/nuvolaris/openwhisk-wskdeploy/utils"
+	"github.com/nuvolaris/openwhisk-wskdeploy/wskderrors"
 	"github.com/fatih/color"
 	"github.com/mattn/go-colorable"
 )
@@ -51,7 +51,7 @@ type Wskdeploy struct {
 }
 
 func NewWskdeploy() *Wskdeploy {
-	return NewWskWithPath(os.Getenv("GOPATH") + "/src/github.com/apache/openwhisk-wskdeploy/")
+	return NewWskWithPath(os.Getenv("GOPATH") + "/src/github.com/nuvolaris/openwhisk-wskdeploy/")
 }
 
 func GetWskpropsFromEnvVars(apiHost string, namespace string, authKey string) *whisk.Wskprops {

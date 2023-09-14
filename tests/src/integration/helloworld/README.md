@@ -21,7 +21,7 @@
 
 ### Package description
 
-The [manifest.yaml](https://github.com/apache/openwhisk-wskdeploy/blob/master/tests/src/integration/helloworld/manifest.yaml) file defines:
+The [manifest.yaml](https://github.com/nuvolaris/openwhisk-wskdeploy/blob/master/tests/src/integration/helloworld/manifest.yaml) file defines:
 
 - a Package named `IntegrationTestHelloWorld` which contains:
 

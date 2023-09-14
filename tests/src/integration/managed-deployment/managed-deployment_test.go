@@ -17,7 +17,7 @@
 
 package tests
 
-const PATH = "/src/github.com/apache/openwhisk-wskdeploy/tests/src/integration/managed-deployment/"
+const PATH = "/src/github.com/nuvolaris/openwhisk-wskdeploy/tests/src/integration/managed-deployment/"
 
 //func TestManagedDeployment(t *testing.T) {
 //	manifestPath := os.Getenv("GOPATH") + PATH + "manifest.yaml"

@@ -20,7 +20,7 @@
 package tests
 
 import (
-	"github.com/apache/openwhisk-wskdeploy/tests/src/integration/common"
+	"github.com/nuvolaris/openwhisk-wskdeploy/tests/src/integration/common"
 	"github.com/stretchr/testify/assert"
 	"os"
 	"testing"
@@ -32,10 +32,10 @@ const (
 )
 
 var (
-	manifestStringEmpty = os.Getenv("GOPATH") + "/src/github.com/apache/openwhisk-wskdeploy/tests/src/integration/webaction/manifest_require_whisk_auth_invalid_str_empty.yaml"
-	manifestStringNil = os.Getenv("GOPATH") + "/src/github.com/apache/openwhisk-wskdeploy/tests/src/integration/webaction/manifest_require_whisk_auth_invalid_str_nil.yaml"
-	manifestIntTooBig = os.Getenv("GOPATH") + "/src/github.com/apache/openwhisk-wskdeploy/tests/src/integration/webaction/manifest_require_whisk_auth_invalid_int_big.yaml"
-	manifestIntNegative = os.Getenv("GOPATH") + "/src/github.com/apache/openwhisk-wskdeploy/tests/src/integration/webaction/manifest_require_whisk_auth_invalid_int_neg.yaml"
+	manifestStringEmpty = os.Getenv("GOPATH") + "/src/github.com/nuvolaris/openwhisk-wskdeploy/tests/src/integration/webaction/manifest_require_whisk_auth_invalid_str_empty.yaml"
+	manifestStringNil = os.Getenv("GOPATH") + "/src/github.com/nuvolaris/openwhisk-wskdeploy/tests/src/integration/webaction/manifest_require_whisk_auth_invalid_str_nil.yaml"
+	manifestIntTooBig = os.Getenv("GOPATH") + "/src/github.com/nuvolaris/openwhisk-wskdeploy/tests/src/integration/webaction/manifest_require_whisk_auth_invalid_int_big.yaml"
+	manifestIntNegative = os.Getenv("GOPATH") + "/src/github.com/nuvolaris/openwhisk-wskdeploy/tests/src/integration/webaction/manifest_require_whisk_auth_invalid_int_neg.yaml"
 )
 
 func TestRequireWhiskAuthAnnotationInvalid(t *testing.T) {

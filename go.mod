@@ -1,4 +1,4 @@
-module github.com/apache/openwhisk-wskdeploy
+module github.com/nuvolaris/openwhisk-wskdeploy
 
 go 1.15
 

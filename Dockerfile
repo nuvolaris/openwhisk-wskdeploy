@@ -23,15 +23,15 @@ RUN apt-get -y update && \
 
 ENV GOPATH=/
 
-ADD . /src/github.com/apache/openwhisk-wskdeploy
+ADD . /src/github.com/nuvolaris/openwhisk-wskdeploy
 
 # All of the Go CLI binaries will be placed under a build folder
-RUN rm -rf /src/github.com/apache/openwhisk-wskdeploy/build
-RUN mkdir /src/github.com/apache/openwhisk-wskdeploy/build
+RUN rm -rf /src/github.com/nuvolaris/openwhisk-wskdeploy/build
+RUN mkdir /src/github.com/nuvolaris/openwhisk-wskdeploy/build
 
 ARG WSKDEPLOY_OS
 ARG WSKDEPLOY_ARCH
 
 # Build the Go wsk CLI binaries and compress resultant binaries
-RUN chmod +x /src/github.com/apache/openwhisk-wskdeploy/build.sh
-RUN cd /src/github.com/apache/openwhisk-wskdeploy/ && ./build.sh
+RUN chmod +x /src/github.com/nuvolaris/openwhisk-wskdeploy/build.sh
+RUN cd /src/github.com/nuvolaris/openwhisk-wskdeploy/ && ./build.sh

@@ -23,8 +23,8 @@ import (
 	"io/ioutil"
 	"strings"
 
-	"github.com/apache/openwhisk-wskdeploy/wskderrors"
-	"github.com/apache/openwhisk-wskdeploy/wski18n"
+	"github.com/nuvolaris/openwhisk-wskdeploy/wskderrors"
+	"github.com/nuvolaris/openwhisk-wskdeploy/wski18n"
 )
 
 const (

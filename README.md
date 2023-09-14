@@ -20,7 +20,7 @@
 # Whisk Deploy `wskdeploy`
 
 [![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0)
-[![Build Status](https://travis-ci.com/apache/openwhisk-wskdeploy.svg?branch=master)](https://travis-ci.com/github/apache/openwhisk-wskdeploy)
+[![Build Status](https://travis-ci.com/nuvolaris/openwhisk-wskdeploy.svg?branch=master)](https://travis-ci.com/github/nuvolaris/openwhisk-wskdeploy)
 
 `wskdeploy` is a utility to help you describe and deploy any part of the OpenWhisk programming model using a YAML manifest file. Use it to deploy all of your OpenWhisk project's [Packages](https://github.com/apache/openwhisk/blob/master/docs/packages.md), [Actions](https://github.com/apache/openwhisk/blob/master/docs/actions.md), [Triggers, and Rules](https://github.com/apache/openwhisk/blob/master/docs/triggers_rules.md), together, using a single command!
 
@@ -61,9 +61,9 @@ Here are some quick links to help you get started:
 
 ## Downloading released binaries
 
-Executable binaries of `wskdeploy` are available for download on the project's GitHub [releases](https://github.com/apache/openwhisk-wskdeploy/releases) page:
+Executable binaries of `wskdeploy` are available for download on the project's GitHub [releases](https://github.com/nuvolaris/openwhisk-wskdeploy/releases) page:
 
-- [https://github.com/apache/openwhisk-wskdeploy/releases](https://github.com/apache/openwhisk-wskdeploy/releases).
+- [https://github.com/nuvolaris/openwhisk-wskdeploy/releases](https://github.com/nuvolaris/openwhisk-wskdeploy/releases).
 
 We currently provide binaries for the following Operating Systems (OS) and architecture combinations:
 
@@ -110,13 +110,13 @@ As the code is managed using GitHub, it is easiest to retrieve the code using th
 if you just want to build the code and do not intend to be a Contributor, you can clone the latest code from the Apache repository:
 
 ```sh
-git clone git@github.com:apache/openwhisk-wskdeploy
+git clone git@github.com:nuvolaris/openwhisk-wskdeploy
 ```
 
-or you can specify a release (tag) if you do not want the latest code by using the `--branch <tag>` flag. For example, you can clone the source code for the tagged 1.1.0 [release](https://github.com/apache/openwhisk-wskdeploy/releases/tag/1.1.0)
+or you can specify a release (tag) if you do not want the latest code by using the `--branch <tag>` flag. For example, you can clone the source code for the tagged 1.1.0 [release](https://github.com/nuvolaris/openwhisk-wskdeploy/releases/tag/1.1.0)
 
 ```sh
-git clone --branch 1.1.0 git@github.com:apache/openwhisk-wskdeploy
+git clone --branch 1.1.0 git@github.com:nuvolaris/openwhisk-wskdeploy
 ```
 
 You can also pull the code from a fork of the repository. If you intend to become a Contributor to the project, read the section [Contributing to the project](#contributing-to-the-project) below on how to setup a fork.
@@ -160,7 +160,7 @@ The project includes its own packaged version of Gradle called Gradle Wrapper wh
 1. Clone the `openwhisk-wskdeploy` repo:
 
     ```sh
-    git clone https://github.com/apache/openwhisk-wskdeploy
+    git clone https://github.com/nuvolaris/openwhisk-wskdeploy
     ```
 
     and change into the project directory.
@@ -224,7 +224,7 @@ gradle -version
 #### Building for internationalization
 
 Please follow this process for building any changes to translatable strings:
-- [How to generate the file i18n_resources.go for internationalization](https://github.com/apache/openwhisk-wskdeploy/blob/master/wski18n/README.md)
+- [How to generate the file i18n_resources.go for internationalization](https://github.com/nuvolaris/openwhisk-wskdeploy/blob/master/wski18n/README.md)
 
 ---
 
@@ -249,7 +249,7 @@ $ go run main.go -m tests/usecases/triggerrule/manifest.yml -d tests/usecases/tr
 
 1. [Fork](https://docs.github.com/en/github/getting-started-with-github/fork-a-repo) the Apache repository
 
-    If you intend to contribute code, you will want to fork the `apache/openwhisk-wskdeploy` repository into your github account and use that as the source for your clone.
+    If you intend to contribute code, you will want to fork the `nuvolaris/openwhisk-wskdeploy` repository into your github account and use that as the source for your clone.
 
 1. Clone the repository from your fork:
 
@@ -260,7 +260,7 @@ $ go run main.go -m tests/usecases/triggerrule/manifest.yml -d tests/usecases/tr
 1. Add the Apache repository as a remote with the `upstream` alias:
 
     ```sh
-    git remote add upstream git@github.com:apache/openwhisk-wskdeploy
+    git remote add upstream git@github.com:nuvolaris/openwhisk-wskdeploy
     ```
 
     You can now use `git push` to push local `commit` changes to your `origin` repository and submit pull requests to the `upstream` project repository.
@@ -331,7 +331,7 @@ go mod edit -go=1.15
 ### Creating Tagged Releases
 
 Committers can find instructions on how to create tagged releases here:
-- [creating_tagged_releases.md](https://github.com/apache/openwhisk-wskdeploy/tree/master/docs/creating_tagged_releases.md)
+- [creating_tagged_releases.md](https://github.com/nuvolaris/openwhisk-wskdeploy/tree/master/docs/creating_tagged_releases.md)
 
 ---
 
@@ -358,7 +358,7 @@ while there, you can verify that your upstream repository is set correctly:
 
 ```sh
 [remote "upstream"]
-    url = git@github.com:apache/openwhisk-wskdeploy
+    url = git@github.com:nuvolaris/openwhisk-wskdeploy
 ```
 
 #### Git clone RPC failed: HTTP 301

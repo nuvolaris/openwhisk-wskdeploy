@@ -22,11 +22,11 @@ import (
 
 	"fmt"
 	"github.com/apache/openwhisk-client-go/whisk"
-	"github.com/apache/openwhisk-wskdeploy/dependencies"
-	"github.com/apache/openwhisk-wskdeploy/parsers"
-	"github.com/apache/openwhisk-wskdeploy/utils"
-	"github.com/apache/openwhisk-wskdeploy/wskderrors"
-	"github.com/apache/openwhisk-wskdeploy/wski18n"
+	"github.com/nuvolaris/openwhisk-wskdeploy/dependencies"
+	"github.com/nuvolaris/openwhisk-wskdeploy/parsers"
+	"github.com/nuvolaris/openwhisk-wskdeploy/utils"
+	"github.com/nuvolaris/openwhisk-wskdeploy/wskderrors"
+	"github.com/nuvolaris/openwhisk-wskdeploy/wski18n"
 )
 
 var clientConfig *whisk.Config

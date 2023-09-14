@@ -21,8 +21,8 @@ package utils
 import (
 	"encoding/json"
 	"github.com/apache/openwhisk-client-go/whisk"
-	"github.com/apache/openwhisk-wskdeploy/wski18n"
-	"github.com/apache/openwhisk-wskdeploy/wskprint"
+	"github.com/nuvolaris/openwhisk-wskdeploy/wski18n"
+	"github.com/nuvolaris/openwhisk-wskdeploy/wskprint"
 	"strings"
 )
 

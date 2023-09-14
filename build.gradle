@@ -35,7 +35,7 @@ plugins {
 apply plugin: "org.nosphere.apache.rat"
 
 golang {
-    packagePath = 'github.com/apache/openwhisk-wskdeploy' as String
+    packagePath = 'github.com/nuvolaris/openwhisk-wskdeploy' as String
     buildTags = (rootProject.findProperty('goTags')?:'').split(',')
 }
 

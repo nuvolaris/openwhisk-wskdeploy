@@ -25,11 +25,11 @@ import (
 	"time"
 
 	"github.com/apache/openwhisk-client-go/whisk"
-	"github.com/apache/openwhisk-wskdeploy/parsers"
-	"github.com/apache/openwhisk-wskdeploy/utils"
-	"github.com/apache/openwhisk-wskdeploy/wskderrors"
-	"github.com/apache/openwhisk-wskdeploy/wski18n"
-	"github.com/apache/openwhisk-wskdeploy/wskprint"
+	"github.com/nuvolaris/openwhisk-wskdeploy/parsers"
+	"github.com/nuvolaris/openwhisk-wskdeploy/utils"
+	"github.com/nuvolaris/openwhisk-wskdeploy/wskderrors"
+	"github.com/nuvolaris/openwhisk-wskdeploy/wski18n"
+	"github.com/nuvolaris/openwhisk-wskdeploy/wskprint"
 )
 
 // Possible sources for config info (e.g., API Host, Auth Key, Namespace)

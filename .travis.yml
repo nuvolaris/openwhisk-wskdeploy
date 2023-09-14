@@ -115,9 +115,9 @@ before_deploy:
     git config --global user.email "builds@travis-ci.com";
     git config --global user.name "Travis CI";
     git tag -d $GIT_TAG;
-    git push -q https://$API_KEY@github.com/apache/openwhisk-wskdeploy :refs/tags/$GIT_TAG;
+    git push -q https://$API_KEY@github.com/nuvolaris/openwhisk-wskdeploy :refs/tags/$GIT_TAG;
     GIT_COMMITTER_DATE="$(git show --format=%aD | head -1)" git tag $GIT_TAG -a -m "Generated tag from Travis CI build $TRAVIS_BUILD_NUMBER";
-    git push -f -q https://$API_KEY@github.com/apache/openwhisk-wskdeploy $GIT_TAG;
+    git push -f -q https://$API_KEY@github.com/nuvolaris/openwhisk-wskdeploy $GIT_TAG;
     fi
   - echo "Completing before_deploy stage"
 
@@ -137,14 +137,14 @@ deploy:
     target_commitish: $TRAVIS_COMMIT
     tag_name: $GIT_TAG
     on:
-      repo: apache/openwhisk-wskdeploy
+      repo: nuvolaris/openwhisk-wskdeploy
       tags: $TAG
       condition: "$DEPLOY_BUILD_READY = true"
   - provider: script
     skip_cleanup: true
     script: "./tools/travis/docker/publish.sh openwhisk wskdeploy ${TRAVIS_TAG}"
     on:
-      repo: apache/openwhisk-wskdeploy
+      repo: nuvolaris/openwhisk-wskdeploy
       tags: true
       condition: "$DEPLOY_BUILD_READY = true"
 

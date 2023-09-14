@@ -21,8 +21,8 @@ import (
 	"strings"
 
 	"github.com/apache/openwhisk-client-go/whisk"
-	"github.com/apache/openwhisk-wskdeploy/utils"
-	"github.com/apache/openwhisk-wskdeploy/wskenv"
+	"github.com/nuvolaris/openwhisk-wskdeploy/utils"
+	"github.com/nuvolaris/openwhisk-wskdeploy/wskenv"
 )
 
 // YAML schema key names

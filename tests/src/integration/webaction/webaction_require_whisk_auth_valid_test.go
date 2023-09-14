@@ -20,7 +20,7 @@
 package tests
 
 import (
-	"github.com/apache/openwhisk-wskdeploy/tests/src/integration/common"
+	"github.com/nuvolaris/openwhisk-wskdeploy/tests/src/integration/common"
 	"github.com/stretchr/testify/assert"
 	"os"
 	"testing"
@@ -40,5 +40,5 @@ func TestRequireWhiskAuthAnnotation(t *testing.T) {
 }
 
 var (
-	manifestPathValidTests = os.Getenv("GOPATH") + "/src/github.com/apache/openwhisk-wskdeploy/tests/src/integration/webaction/manifest_require_whisk_auth_valid.yaml"
+	manifestPathValidTests = os.Getenv("GOPATH") + "/src/github.com/nuvolaris/openwhisk-wskdeploy/tests/src/integration/webaction/manifest_require_whisk_auth_valid.yaml"
 )

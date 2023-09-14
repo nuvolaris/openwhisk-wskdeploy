@@ -24,11 +24,11 @@ import (
 	"testing"
 
 	"github.com/apache/openwhisk-client-go/whisk"
-	"github.com/apache/openwhisk-wskdeploy/dependencies"
-	"github.com/apache/openwhisk-wskdeploy/parsers"
-	"github.com/apache/openwhisk-wskdeploy/runtimes"
-	"github.com/apache/openwhisk-wskdeploy/utils"
-	"github.com/apache/openwhisk-wskdeploy/wskprint"
+	"github.com/nuvolaris/openwhisk-wskdeploy/dependencies"
+	"github.com/nuvolaris/openwhisk-wskdeploy/parsers"
+	"github.com/nuvolaris/openwhisk-wskdeploy/runtimes"
+	"github.com/nuvolaris/openwhisk-wskdeploy/utils"
+	"github.com/nuvolaris/openwhisk-wskdeploy/wskprint"
 	"github.com/stretchr/testify/assert"
 )
 

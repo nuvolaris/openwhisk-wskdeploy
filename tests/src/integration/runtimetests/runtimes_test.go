@@ -20,7 +20,7 @@
 package tests
 
 import (
-	"github.com/apache/openwhisk-wskdeploy/tests/src/integration/common"
+	"github.com/nuvolaris/openwhisk-wskdeploy/tests/src/integration/common"
 	"github.com/stretchr/testify/assert"
 	"os"
 	"testing"
@@ -28,7 +28,7 @@ import (
 
 func TestExplicitRuntimes(t *testing.T) {
 	wskdeploy := common.NewWskdeploy()
-	projectPath := os.Getenv("GOPATH") + "/src/github.com/apache/openwhisk-wskdeploy/tests/src/integration/runtimetests"
+	projectPath := os.Getenv("GOPATH") + "/src/github.com/nuvolaris/openwhisk-wskdeploy/tests/src/integration/runtimetests"
 	_, err := wskdeploy.DeployProjectPathOnly(projectPath)
 	assert.Equal(t, nil, err, "Failed to deploy based on the project path")
 	_, err = wskdeploy.UndeployProjectPathOnly(projectPath)

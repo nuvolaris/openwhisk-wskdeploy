@@ -18,8 +18,8 @@
 package parsers
 
 import (
-	"github.com/apache/openwhisk-wskdeploy/utils"
-	"github.com/apache/openwhisk-wskdeploy/wskderrors"
+	"github.com/nuvolaris/openwhisk-wskdeploy/utils"
+	"github.com/nuvolaris/openwhisk-wskdeploy/wskderrors"
 	"gopkg.in/yaml.v2"
 )
 
