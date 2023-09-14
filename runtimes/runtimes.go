@@ -146,7 +146,7 @@ func ParseOpenWhisk(apiHost string) (op OpenWhiskInfo, err error) {
 	if err != nil || !strings.Contains(HTTP_CONTENT_TYPE_VALUE, res.Header.Get(HTTP_CONTENT_TYPE_KEY)) {
 		stdout := wski18n.T(wski18n.ID_MSG_UNMARSHAL_LOCAL)
 		wskprint.PrintOpenWhiskVerbose(utils.Flags.Verbose, stdout)
-		runtimes := os.Getenv("RUNTIMES_JSON")
+		runtimes := os.Getenv("WSK_RUNTIMES_JSON")
 		whisk.Debug(whisk.DbgInfo, runtimes)
 		err = json.Unmarshal([]byte(runtimes), &op)
 		if err != nil {
