@@ -20,6 +20,7 @@ package runtimes
 import (
 	"crypto/tls"
 	"encoding/json"
+	"fmt"
 	"io/ioutil"
 	"net/http"
 	"net/url"
@@ -147,6 +148,7 @@ func ParseOpenWhisk(apiHost string) (op OpenWhiskInfo, err error) {
 		stdout := wski18n.T(wski18n.ID_MSG_UNMARSHAL_LOCAL)
 		wskprint.PrintOpenWhiskVerbose(utils.Flags.Verbose, stdout)
 		runtimes := os.Getenv("WSK_RUNTIMES_JSON")
+		fmt.Println(runtimes)
 		whisk.Debug(whisk.DbgInfo, runtimes)
 		err = json.Unmarshal([]byte(runtimes), &op)
 		if err != nil {
