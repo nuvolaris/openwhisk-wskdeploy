@@ -83,7 +83,7 @@ type SupportInfo struct {
 
 type OpenWhiskInfo struct {
 	Support  SupportInfo          `json:"support"`
-	Desc     string               `json:"description"`
+	Desc     []string             `json:"description"`
 	ApiPath  []string             `json:"api_paths"`
 	Runtimes map[string][]Runtime `json:"runtimes"`
 	Limits   Limit                `json:"limits"`
