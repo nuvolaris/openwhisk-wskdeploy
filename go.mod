@@ -23,7 +23,7 @@ require (
 	github.com/mattn/go-colorable v0.1.13 // indirect
 	github.com/mattn/go-isatty v0.0.16 // indirect
 	github.com/mitchellh/go-homedir v1.1.0 // indirect
-	github.com/nuvolaris/openwhisk-wskdeploy v0.0.0-20230915100210-63577e74efa6 // indirect
+	github.com/nuvolaris/openwhisk-wskdeploy v0.0.0-20230915110137-9b4b02cf0789 // indirect
 	github.com/pelletier/go-toml v1.8.1 // indirect
 	github.com/pmezard/go-difflib v1.0.1-0.20181226105442-5d4384ee4fb2 // indirect
 	github.com/spf13/cobra v1.6.1 // indirect
