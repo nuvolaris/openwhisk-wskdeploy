@@ -94,23 +94,12 @@ var SupportedRunTimes map[string][]string
 var DefaultRunTimes map[string]string
 var FileRuntimeExtensionsMap map[string]string
 
-// We could get the openwhisk info from bluemix through running the command
-// `curl -k https://openwhisk.ng.bluemix.net`
-// hard coding it here in case of network unavailable or failure.
-func ParseOpenWhisk(apiHost string) (op OpenWhiskInfo, err error) {
-	opURL := apiHost
-	_, err = url.ParseRequestURI(opURL)
-	if err != nil {
-		opURL = HTTPS + opURL
-	}
-	req, _ := http.NewRequest("GET", opURL+"/api/runtimes/", nil)
-	req1, _ := http.NewRequest("GET", opURL, nil)
-	req.Header.Set(HTTP_CONTENT_TYPE_KEY, HTTP_CONTENT_TYPE_VALUE)
-	req1.Header.Set(HTTP_CONTENT_TYPE_KEY, HTTP_CONTENT_TYPE_VALUE)
+func GetRuntimesByUrl(opURL string, pop *OpenWhiskInfo) error {
+
+	// configure transport
 	tlsConfig := &tls.Config{
 		InsecureSkipVerify: true,
 	}
-
 	var netTransport = &http.Transport{
 		TLSClientConfig: tlsConfig,
 	}
@@ -120,12 +109,10 @@ func ParseOpenWhisk(apiHost string) (op OpenWhiskInfo, err error) {
 		Transport: netTransport,
 	}
 
+	req, _ := http.NewRequest("GET", opURL, nil)
+	req.Header.Set(HTTP_CONTENT_TYPE_KEY, HTTP_CONTENT_TYPE_VALUE)
 	whisk.Debug(whisk.DbgInfo, "trying "+req.URL.String())
 	res, err := netClient.Do(req)
-	if err != nil {
-		whisk.Debug(whisk.DbgInfo, "trying "+req1.URL.String())
-		res, err = netClient.Do(req1)
-	}
 	if err != nil {
 		// TODO() create an error
 		errString := wski18n.T(wski18n.ID_ERR_RUNTIMES_GET_X_err_X,
@@ -135,39 +122,48 @@ func ParseOpenWhisk(apiHost string) (op OpenWhiskInfo, err error) {
 			errMessage := wski18n.T(wski18n.ID_ERR_RUNTIME_PARSER_ERROR,
 				map[string]interface{}{wski18n.KEY_ERR: err.Error()})
 			err = wskderrors.NewRuntimeParserError(errMessage)
-			return
 		}
+		return err
+	} else {
+		if res != nil {
+			defer res.Body.Close()
+		}
+		b, _ := ioutil.ReadAll(res.Body)
+		if b != nil && len(b) > 0 {
+			stdout := wski18n.T(wski18n.ID_MSG_UNMARSHAL_NETWORK_X_url_X,
+				map[string]interface{}{"url": opURL})
+			wskprint.PrintOpenWhiskVerbose(utils.Flags.Verbose, stdout)
+			return json.Unmarshal(b, pop)
+		}
+		return fmt.Errorf("cannot get runtimes")
+	}
+}
+
+// We could get the openwhisk info from bluemix through running the command
+// `curl -k https://openwhisk.ng.bluemix.net`
+// hard coding it here in case of network unavailable or failure.
+func ParseOpenWhisk(apiHost string) (op OpenWhiskInfo, err error) {
+	opURL := apiHost
+	_, err = url.ParseRequestURI(opURL)
+	if err != nil {
+		opURL = HTTPS + opURL
 	}
 
-	if res != nil {
-		defer res.Body.Close()
+	// trying to download runtimes
+	err = GetRuntimesByUrl(opURL+"/api/runtimes", &op)
+	if err != nil {
+		err = GetRuntimesByUrl(opURL, &op)
 	}
-
-	// Local openwhisk deployment sometimes only returns "application/json" as the content type
-	if err != nil || !strings.Contains(HTTP_CONTENT_TYPE_VALUE, res.Header.Get(HTTP_CONTENT_TYPE_KEY)) {
+	if err != nil {
 		stdout := wski18n.T(wski18n.ID_MSG_UNMARSHAL_LOCAL)
 		wskprint.PrintOpenWhiskVerbose(utils.Flags.Verbose, stdout)
 		runtimes := os.Getenv("WSK_RUNTIMES_JSON")
-		fmt.Println(runtimes)
 		whisk.Debug(whisk.DbgInfo, runtimes)
 		err = json.Unmarshal([]byte(runtimes), &op)
 		if err != nil {
 			errMessage := wski18n.T(wski18n.ID_ERR_RUNTIME_PARSER_ERROR,
 				map[string]interface{}{wski18n.KEY_ERR: err.Error()})
 			err = wskderrors.NewRuntimeParserError(errMessage)
-		}
-	} else {
-		b, _ := ioutil.ReadAll(res.Body)
-		if b != nil && len(b) > 0 {
-			stdout := wski18n.T(wski18n.ID_MSG_UNMARSHAL_NETWORK_X_url_X,
-				map[string]interface{}{"url": opURL})
-			wskprint.PrintOpenWhiskVerbose(utils.Flags.Verbose, stdout)
-			err = json.Unmarshal(b, &op)
-			if err != nil {
-				errMessage := wski18n.T(wski18n.ID_ERR_RUNTIME_PARSER_ERROR,
-					map[string]interface{}{wski18n.KEY_ERR: err.Error()})
-				err = wskderrors.NewRuntimeParserError(errMessage)
-			}
 		}
 	}
 	return
