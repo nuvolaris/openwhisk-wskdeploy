@@ -187,6 +187,8 @@ github.com/nuvolaris/openwhisk-wskdeploy v0.0.0-20230915130341-a1e60ac59a3a h1:6
 github.com/nuvolaris/openwhisk-wskdeploy v0.0.0-20230915130341-a1e60ac59a3a/go.mod h1:Rx9BGhPmwoWToPAVFr/12P3W0JRYlxCH/xzCz6NeOQo=
 github.com/nuvolaris/openwhisk-wskdeploy v0.0.0-20230915131310-1e795a4247d3 h1:6x1vY+BgLVdC/XnEXyCsqdsFnHvLsI5EUqKNwc1L9UI=
 github.com/nuvolaris/openwhisk-wskdeploy v0.0.0-20230915131310-1e795a4247d3/go.mod h1:Rx9BGhPmwoWToPAVFr/12P3W0JRYlxCH/xzCz6NeOQo=
+github.com/nuvolaris/openwhisk-wskdeploy v0.0.0-20230916104531-c4bc982185e9 h1:CXCPlchX/Dq2BzaiuGnK9t2wR5z5UWQJF0IHcfIyxac=
+github.com/nuvolaris/openwhisk-wskdeploy v0.0.0-20230916104531-c4bc982185e9/go.mod h1:Rx9BGhPmwoWToPAVFr/12P3W0JRYlxCH/xzCz6NeOQo=
 github.com/nxadm/tail v1.4.4/go.mod h1:kenIhsEOeOJmVchQTgglprH7qJGnHDVpk1VPCcaMI8A=
 github.com/nxadm/tail v1.4.8 h1:nPr65rt6Y5JFSKQO7qToXr7pePgD6Gwiw05lkbyAQTE=
 github.com/nxadm/tail v1.4.8/go.mod h1:+ncqLTQzXmGhMZNUePPaPqPvBxHAIsmXswZKocGu+AU=
