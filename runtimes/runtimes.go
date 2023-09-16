@@ -83,7 +83,7 @@ type SupportInfo struct {
 
 type OpenWhiskInfo struct {
 	Support  SupportInfo          `json:"support"`
-	Desc     []string             `json:"description"`
+	Desc     string               `json:"description"`
 	ApiPath  []string             `json:"api_paths"`
 	Runtimes map[string][]Runtime `json:"runtimes"`
 	Limits   Limit                `json:"limits"`
@@ -149,8 +149,8 @@ func ParseOpenWhisk(apiHost string) (op OpenWhiskInfo, err error) {
 		opURL = HTTPS + opURL
 	}
 
-	// trying to download runtimes
-	err = GetRuntimesByUrl(opURL+"/api/runtimes", &op)
+	// trying to download info
+	err = GetRuntimesByUrl(opURL+"/api/info", &op)
 	if err != nil {
 		err = GetRuntimesByUrl(opURL, &op)
 	}
