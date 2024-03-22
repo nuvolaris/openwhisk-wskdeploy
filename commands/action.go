@@ -199,7 +199,7 @@ func invokeAction(
 	qualifiedName QualifiedName,
 	parameters interface{},
 	blocking bool,
-	result bool) (map[string]interface{}, error) {
+	result bool) (interface{}, error) {
 	// TODO remove all global modifiers
 	Client.Namespace = qualifiedName.GetNamespace()
 	res, _, err := Client.Actions.Invoke(
@@ -207,14 +207,14 @@ func invokeAction(
 		parameters,
 		blocking,
 		result)
-	return res.(map[string]interface{}), err
+	return res, err
 }
 
 func printInvocationResponse(
 	qualifiedName QualifiedName,
 	blocking bool,
 	header bool,
-	result map[string]interface{},
+	result interface{},
 	err error) error {
 	if err == nil {
 		printInvocationMsg(qualifiedName, blocking, header, result, color.Output)
@@ -232,7 +232,7 @@ func printInvocationResponse(
 func printFailedBlockingInvocationResponse(
 	qualifiedName QualifiedName,
 	header bool,
-	result map[string]interface{},
+	result interface{},
 	err error) error {
 	if isBlockingTimeout(err) {
 		printBlockingTimeoutMsg(
@@ -300,8 +300,8 @@ var actionGetCmd = &cobra.Command{
 				werr := whisk.MakeWskError(errors.New(errStr), whisk.EXIT_CODE_ERR_GENERAL, whisk.DISPLAY_MSG, whisk.NO_DISPLAY_USAGE)
 				return werr
 			}
-			//printActionGetWithURL(qualifiedName.GetEntity(), actionURL)
-			fmt.Println(actionURL)
+			printActionGetWithURL(qualifiedName.GetEntity(), actionURL)
+			//fmt.Println(actionURL)
 		} else if Flags.common.summary {
 			printSummary(action)
 		} else if cmd.LocalFlags().Changed(SAVE_AS_FLAG) || cmd.LocalFlags().Changed(SAVE_FLAG) {
@@ -1170,7 +1170,7 @@ func printInvocationMsg(
 	qualifiedName QualifiedName,
 	blocking bool,
 	header bool,
-	response map[string]interface{},
+	response interface{},
 	outputStream io.Writer) {
 	if header {
 		fmt.Fprintf(

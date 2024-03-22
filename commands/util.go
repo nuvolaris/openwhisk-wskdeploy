@@ -23,8 +23,8 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/nuvolaris/openwhisk-cli/wski18n"
 	"github.com/apache/openwhisk-client-go/whisk"
+	"github.com/nuvolaris/openwhisk-cli/wski18n"
 
 	"github.com/fatih/color"
 	"github.com/mattn/go-colorable"
@@ -258,7 +258,8 @@ func quickSort(toSort Sortables, left int, right int) {
 }
 
 // makeDefaultHeader(collection) returns the default header to be used in case
-//      the list to be printed is empty.
+//
+//	the list to be printed is empty.
 func makeDefaultHeader(collection interface{}) string {
 	defaultHeader := reflect.TypeOf(collection).String()
 	defaultHeader = strings.ToLower(defaultHeader[8:] + "s") // Removes '[]whisk.' from `[]whisk.ENTITY_TYPE`
@@ -324,7 +325,9 @@ func printSummary(collection interface{}) {
 
 // Used to print Action, Trigger, Package, and Rule lists
 // Param: Takes in a array of Printable interface, and the name of the command
-//          being sent to it
+//
+//	being sent to it
+//
 // **Note**: The name should be an empty string for APIs.
 func printCommandsList(commands []whisk.Printable, defaultHeader string) {
 	if len(commands) != 0 {
@@ -422,11 +425,12 @@ func printEntitySummary(entityType string, fullName string, description string, 
 	fmt.Fprintf(color.Output, "   (%s: %s)\n", boldString(wski18n.T("parameters")), params)
 }
 
-//  getParamUnion(keyValArrAnnots, keyValArrParams, key) returns the union
-//      of parameters listed under annotations (keyValArrAnnots, using key) and
-//      bound parameters (keyValArrParams). Bound parameters will be denoted with
-//      a prefixed "*", and finalized bound parameters (can't be changed by
-//      user) will be denoted by a prefixed "**".
+// getParamUnion(keyValArrAnnots, keyValArrParams, key) returns the union
+//
+//	of parameters listed under annotations (keyValArrAnnots, using key) and
+//	bound parameters (keyValArrParams). Bound parameters will be denoted with
+//	a prefixed "*", and finalized bound parameters (can't be changed by
+//	user) will be denoted by a prefixed "**".
 func getParamUnion(keyValArrAnnots whisk.KeyValueArr, keyValArrParams whisk.KeyValueArr, key string) []string {
 	var res []string
 	tag := "*"
@@ -448,8 +452,9 @@ func getParamUnion(keyValArrAnnots whisk.KeyValueArr, keyValArrParams whisk.KeyV
 	return res
 }
 
-//  tagBoundParams(boundParams, paramUnion, tag) returns the list paramUnion with
-//      all strings listed under boundParams set with a prefix tag.
+// tagBoundParams(boundParams, paramUnion, tag) returns the list paramUnion with
+//
+//	all strings listed under boundParams set with a prefix tag.
 func tagBoundParams(boundParams []string, paramUnion []string, tag string) []string {
 	res := paramUnion
 	for i := 0; i < len(boundParams); i++ {
@@ -462,9 +467,10 @@ func tagBoundParams(boundParams []string, paramUnion []string, tag string) []str
 	return res
 }
 
-//  buildParamDescription(params) returns a default entity description for
-//      `$ wsk [ENTITY] get [ENTITY_NAME] --summary` when parameters are defined,
-//      but the entity description under annotations is not.
+// buildParamDescription(params) returns a default entity description for
+//
+//	`$ wsk [ENTITY] get [ENTITY_NAME] --summary` when parameters are defined,
+//	but the entity description under annotations is not.
 func buildParamDescription(params string) string {
 	preamble := "Returns a result based on parameter"
 	params = strings.Replace(params, "*", "", -1)
@@ -604,13 +610,14 @@ func getChildValueStrings(keyValueArr whisk.KeyValueArr, key string, childKey st
 	return res
 }
 
-func getValueFromJSONResponse(field string, response map[string]interface{}) interface{} {
+func getValueFromJSONResponse(field string, response interface{}) interface{} {
 	var res interface{}
 
-	for key, value := range response {
-		if key == field {
-			res = value
-			break
+	if result, ok := response.(map[string]interface{}); ok {
+		for key, value := range result {
+			if key == field {
+				return value
+			}
 		}
 	}
 
